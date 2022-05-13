@@ -32,7 +32,7 @@ jobs:
         uses: madrapps/jacoco-report@v1.2
         with:
           paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
-          token: ${{ secrets.test }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 40
           min-coverage-changed-files: 60
           debug-mode: false
@@ -40,6 +40,6 @@ jobs:
       - name: Check Style for Java
         uses: dbelyaev/action-checkstyle@v0.5.1
         with:
-          github_token: ${{ secrets.test }}
+          github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: warning
